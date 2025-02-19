@@ -1,26 +1,13 @@
-
 from flask import Flask, render_template, request, jsonify
-
-
 from Searcher import query_processing, stopword_check, bool_AND, calculate_Score, print_search
-
-
 import time
-
-
 import json
-
-
 import openai
-
-
 import requests
-
-
 from bs4 import BeautifulSoup
 
 # Set the OpenAI api key
-openai.api_key = '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'
+openai.api_key = ''
 
 
 app = Flask(__name__)

@@ -62,18 +62,18 @@ Once you unzip the submission file, you should see the following files:
    - `DocIDS.json`
 
 ## Running the Search Engine Web GUI
-
-1. Run `gui.py` using Python 3:
+1. Update the OpenAI api key (Github does not allow it to be published)
+2. Run `gui.py` using Python 3:
    ```bash
    python3 gui.py
    ```
-2. The console will display Flask server information.
-3. Open the provided link in a web browser. For example, if the console prints:
+3. The console will display Flask server information.
+4. Open the provided link in a web browser. For example, if the console prints:
    ```
    Running on http://127.0.0.1:5000
    ```
    Open `http://127.0.0.1:5000` in your browser.
-4. The web GUI will allow you to enter queries, view search results, and check the time taken for retrieval.
+5. The web GUI will allow you to enter queries, view search results, and check the time taken for retrieval.
 
 ## Additional Features
 
