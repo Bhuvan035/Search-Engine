@@ -62,7 +62,7 @@ Once you unzip the submission file, you should see the following files:
    - `DocIDS.json`
 
 ## Running the Search Engine Web GUI
-1. Update the OpenAI api key (Github does not allow it to be published)
+1. Update the OpenAI api key in Searcher.py and gui.py (Github does not allow it to be published)
 2. Run `gui.py` using Python 3:
    ```bash
    python3 gui.py

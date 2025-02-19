@@ -132,7 +132,7 @@ def print_search(sorted_scores):    #used only when running Seracher.py directly
             if keys:
                 print(urldict2[keys[0]])
                 keys.remove(keys[0])
-                openai.api_key = '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'   #below code uses openai api to generate summary of the url
+                #openai.api_key = ''   #below code uses openai api to generate summary of the url
 
                 u = urldict2[keys[0]]
                 prompt = f"Summarize the contents of the web page at {u}."
