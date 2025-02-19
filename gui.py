@@ -7,7 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # Set the OpenAI api key
-openai.api_key = ''
+#openai.api_key = ''
 
 
 app = Flask(__name__)
