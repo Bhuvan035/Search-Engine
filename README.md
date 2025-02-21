@@ -1,87 +1,73 @@
-# ICS Search Engine
+# ICS Website Search Engine
 
-Welcome to the **ICS Search Engine**! This web-based search engine is built from scratch to efficiently handle up to two thousand documents or web pages from the School of Information and Computer Science (ICS) at the University of California, Irvine (UCI). Powered by Python's Flask framework, this project leverages advanced Information Retrieval techniques, including text processing, indexing, and ranking algorithms. Additionally, it integrates the OpenAI API for automatic summary generation, enhancing the relevance and user experience of search results.
+## Overview
+This is a search engine built specifically for indexing and retrieving content from the University of California, Irvine's ICS websites. The system processes web pages, indexes their content, and allows users to search for relevant information through a web interface.
 
 ## Features
+- **Indexing System:** Processes and stores web page data for efficient retrieval.
+- **Search Functionality:** Supports keyword-based search with ranking based on relevance.
+- **Stopword Filtering:** Removes common words to improve search accuracy.
+- **Boolean AND Matching:** Retrieves documents containing all query terms.
+- **Summarization:** Uses OpenAI's API to generate summaries of retrieved pages.
+- **Dark Mode Support:** UI includes a dark mode toggle for better accessibility.
 
-- **Text Processing:** Utilizes NLTK to perform tokenization and stemming on documents.
-- **Indexing:** Implements an inverted indexer to store processed documents, mapping terms to the documents they appear in, alongside their TF-IDF scores and importance.
-- **Ranking:** Ranks documents based on their TF-IDF scores to provide a list of top search results.
-- **Web Scraping:** Uses the BeautifulSoup library to parse HTML and extract useful information.
-- **Summary Generation:** Employs OpenAI's GPT-3 model to generate a summary of search results.
-- **Flask Web Application:** Hosted on a Flask server, handling GET and POST requests and rendering a simple and intuitive user interface.
-
-## Installation
-
-To run this project locally, follow these steps:
-
-### Clone the Repository:
-```bash
-git clone https://github.com/ajajoo11/ICS_SearchEngine_UCI.git
-cd ICS_SearchEngine_UCI
+## Files & Directory Structure
+```
+📂 project-root/
+├── gui.py              # Flask-based frontend and search handling
+├── indexer.py          # Processes and indexes web pages
+├── searcher.py         # Retrieves and ranks search results
+├── templates/
+│   ├── index.html      # Frontend HTML template
+├── finalreverseindexer.txt  # Merged index file
+├── index2.txt          # Character position index
+├── index3.txt          # Alphabet-wise index
+├── DocIDs.json         # Maps document IDs to URLs
 ```
 
-### Install Required Modules
-Ensure you have the following Python modules installed:
-
-- `nltk`
-- `bs4`
-- `re`
-- `os`
-- `json`
-- `tqdm` (timer)
-- `openai` (for OpenAI API)
-- `timer`
-
-You can install them using pip:
-```bash
-pip install nltk beautifulsoup4 tqdm openai
+## Installation & Setup
+### Prerequisites
+Ensure you have Python 3 installed along with the following dependencies:
+```
+pip install flask nltk beautifulsoup4 tqdm openai requests
 ```
 
-## File Structure
-Once you unzip the submission file, you should see the following files:
-
-- `indexer.py`
-- `Searcher.py`
-- `gui.py`
-- `README.txt`
-- `templates/` folder containing `index.html`
-
-## Building the Indexer
-
-1. Ensure you have the `DEV` folder in the same directory as `indexer.py`.
-2. Run `indexer.py` using Python 3.2:
-   ```bash
-   python3.2 indexer.py
+### Running the Project
+1. **Run the Web Interface:** Since the indexer files have already been uploaded, you can directly run the GUI without indexing.
    ```
-3. A progress bar will display the runtime.
-4. The program should take 15-16 minutes to complete and will generate the following files in the same directory:
-   - `finalreverseindexer.txt`
-   - `index2.txt`
-   - `index3.txt`
-   - `DocIDS.json`
-
-## Running the Search Engine Web GUI
-1. Update the OpenAI api key in Searcher.py and gui.py (Github does not allow it to be published)
-2. Run `gui.py` using Python 3:
-   ```bash
    python3 gui.py
    ```
-3. The console will display Flask server information.
-4. Open the provided link in a web browser. For example, if the console prints:
-   ```
-   Running on http://127.0.0.1:5000
-   ```
-   Open `http://127.0.0.1:5000` in your browser.
-5. The web GUI will allow you to enter queries, view search results, and check the time taken for retrieval.
 
-## Additional Features
+2. **Access the Search Engine:** Open your browser and go to:
+   ```
+   http://127.0.0.1:5000/
+   ```
 
-- **Web GUI:** A user-friendly interface for searching and viewing results.
-- **Duplicate Page Detection:** Eliminates duplicate pages to enhance result quality.
-- **Summarization:** Generates summaries of search results using the OpenAI API. Clicking the **summary** button takes 2-3 seconds to generate a short summary.
+3. **Perform a Search:** Enter a query in the search bar and retrieve ranked results.
+
+### Important Note
+🚨 **API Key Requirement:** The OpenAI API key is not included in this repository for security reasons. Before running the project, you must add your OpenAI API key in `gui.py` and `searcher.py` where required.
+
+## How It Works
+1. **Indexing (indexer.py):**
+   - Extracts content from JSON web page files.
+   - Tokenizes, stems, and assigns importance weights.
+   - Generates index files (`finalreverseindexer.txt`, `index2.txt`, `index3.txt`, `DocIDs.json`).
+
+2. **Searching (searcher.py):**
+   - Processes user queries and removes stopwords.
+   - Matches query terms using a boolean AND operation.
+   - Scores and ranks search results.
+
+3. **Frontend (gui.py & index.html):**
+   - Handles user queries via Flask.
+   - Displays search results and allows users to request page summaries.
+
+## Future Improvements
+- Implement phrase searching and wildcard support.
+- Enhance the ranking algorithm with additional weighting factors.
+- Improve UI/UX with more features like filters and categories.
 
 ---
-
-Enjoy using the ICS Search Engine!
+Developed by Bhuvan Chandra
 
