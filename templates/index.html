@@ -4,6 +4,7 @@
 <head>
     <title>Search Engine</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
         :root {
             --bg-color: white;
@@ -195,12 +196,13 @@
             $("#modeSwitcher").click(function () {
                 if ($("body").attr("data-theme") == "dark") {
                     $("body").attr("data-theme", "light");
-                    $(this).removeClass('btn-light').addClass('btn-dark');
+                    $(this).removeClass('btn-light').addClass('btn-dark').text("Switch to Dark Mode");
                 } else {
                     $("body").attr("data-theme", "dark");
-                    $(this).removeClass('btn-dark').addClass('btn-light');
+                    $(this).removeClass('btn-dark').addClass('btn-light').text("Switch to Light Mode");
                 }
             });
+
         });
     </script>
 </body>
